@@ -17,7 +17,8 @@ services:
       TUNNEL_DNS_ADDRESS: "0.0.0.0"
     networks:
       pihole:
-        ipv4_address: "172.27.1.22"
+        ipv4_address: 172.27.1.22
+        ipv6_address: 2001:3200:3200::22
 
   pihole:
     container_name: pihole
@@ -66,13 +67,17 @@ services:
     restart: unless-stopped
     networks:
       pihole:
-        ipv4_address: "172.27.1.21"
+        ipv4_address: 172.27.1.21
+        ipv6_address: 2001:3200:3200::21
 
 networks:
   pihole:
     driver: bridge
-    enable_ipv6: false
+    enable_ipv6: true
     ipam:
       config:
         # Fixed class B CIDR
-        - subnet: "172.27.1.0/24"
+        - subnet: 172.27.1.0/24
+          gateway: 172.27.1.1
+        - subnet: 2001:3200:3200::/64
+          gateway: 2001:3200:3200::1

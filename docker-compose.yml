@@ -41,12 +41,12 @@ services:
     # See the list of environment variables at https://github.com/pi-hole/docker-pi-hole/#environment-variables
     environment:
       # You can get a list of time zone at https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-      TZ: "America/Los_Angeles"
+      TZ: "America/New_York"
       
       # In the './web-password' directory
       # You can rename 'password.sample.txt' to 'password.txt'
       # and put your password there
-      WEBPASSWORD_FILE: "/opt/pihole/web-password/password.txt"
+      WEBPASSWORD_FILE: "./password.txt"
       IPv6: false
       DHCP_ACTIVE: false
       WEBUIBOXEDLAYOUT: boxed
@@ -63,9 +63,8 @@ services:
 
     # Volumes store your data between container upgrades
     volumes:
-      - "./etc-pihole:/etc/pihole"
-      - "./etc-dnsmasq.d:/etc/dnsmasq.d"
-      - "./web-password:/opt/pihole/web-password"
+      - "./pihole:/etc/pihole"
+      - "./pihole/dnsmasq.d:/etc/dnsmasq.d"
 
     #   https://github.com/pi-hole/docker-pi-hole#note-on-capabilities
     # cap_add:

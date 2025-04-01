@@ -13,8 +13,8 @@ services:
       # Cloudflare DoH
       # TUNNEL_DNS_UPSTREAM: "https://1.0.0.1/dns-query,https://1.1.1.1/dns-query"
       # Quad9 DoH (Filtered, DNSSEC)
-      TUNNEL_DNS_UPSTREAM: "https://dns.quad9.net/dns-query"
-      # Quad9 DoH (Filtered, DNSSEC, ECS)
+      TUNNEL_DNS_UPSTREAM: "https://9.9.9.9/dns-query"
+      # Quad9 DoH (Filtered, DNSSEC, ECS) - Unclear what the IP only version of this is
       # TUNNEL_DNS_UPSTREAM: "https://dns11.quad9.net/dns-query"
       # Listen on an unprivileged port
       TUNNEL_DNS_PORT: 5053
